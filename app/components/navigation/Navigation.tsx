@@ -11,9 +11,12 @@ async function Navigation() {
       <p className="logo">{settings.data.title}</p>
       <div className="nav-links">
         {settings.data.navigation.map((item) => (
-          <a key={item.navigation_link_title} field={item.navigation_link}>
+          <PrismicNextLink
+            key={item.navigation_link_title}
+            field={item.navigation_link}
+          >
             <p>{item.navigation_link_title}</p>
-          </a>
+          </PrismicNextLink>
         ))}
       </div>
     </nav>
