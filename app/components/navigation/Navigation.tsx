@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import { PrismicNextLink } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 import "./Navigation.css";
@@ -8,21 +11,19 @@ async function Navigation() {
 
   return (
     <nav>
-      <a href="/" className="logo">
+      <PrismicNextLink href="/" className="logo">
         {settings.data.title}
-      </a>
-      <ul className="nav-links">
+      </PrismicNextLink>
+      <div className="nav-links">
         {/* Renders top-level links. */}
         {settings.data.navigation.map((item) => {
           return (
-            <li key={item.navigation_link_title}>
-              <PrismicNextLink field={item.navigation_link}>
-                <p>{item.navigation_link_title}</p>
-              </PrismicNextLink>
-            </li>
+            <PrismicNextLink field={item.navigation_link}>
+              <p>{item.navigation_link_title}</p>
+            </PrismicNextLink>
           );
         })}
-      </ul>
+      </div>
     </nav>
   );
 }
