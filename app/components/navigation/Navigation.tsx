@@ -11,19 +11,16 @@ async function Navigation() {
 
   return (
     <nav>
-      <PrismicNextLink href="/" className="logo">
-        {settings.data.title}
-      </PrismicNextLink>
+      <p className="logo">{settings.data.title}</p>
       <div className="nav-links">
         {/* Renders top-level links. */}
         {settings.data.navigation.map((item) => {
           return (
-            <PrismicNextLink
-              key={item.navigation_link_title}
-              field={item.navigation_link}
-            >
-              <p>{item.navigation_link_title}</p>
-            </PrismicNextLink>
+            <div key={item.navigation_link_title}>
+              <PrismicNextLink field={item.navigation_link}>
+                <p>{item.navigation_link_title}</p>
+              </PrismicNextLink>
+            </div>
           );
         })}
       </div>
