@@ -1,8 +1,8 @@
 import { createClient } from "@/prismicio";
 
-export default async function Home() {
+export default async function Contact() {
   const client = createClient();
-  const content = await client.getSingle("home");
+  const content = await client.getSingle("contact");
   return (
     <div>
       <h1 className="text-8xl">{content.data.page_title}</h1>

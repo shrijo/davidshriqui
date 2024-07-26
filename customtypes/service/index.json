@@ -1,0 +1,31 @@
+{
+  "format": "custom",
+  "id": "service",
+  "label": "Service",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "service_title": {
+        "type": "Text",
+        "config": {
+          "label": "Service Title",
+          "placeholder": ""
+        }
+      },
+      "service_description": {
+        "type": "Text",
+        "config": {
+          "label": "Service Description",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
