@@ -1,4 +1,5 @@
 import { createClient } from "@/prismicio";
+import BlogPostPreview from "../components/BlogPostPreview/BlogPostPreview";
 
 export default async function Blog() {
   const client = createClient();
@@ -7,16 +8,13 @@ export default async function Blog() {
 
   return (
     <div>
-      <h1 className="text-8xl">{content.data.page_title}</h1>
-      <p className="text-4xl">{content.data.page_lead}</p>
-      <ul>
+      <h1 className="text-8xl my-8 mx-8">{content.data.page_title}</h1>
+      <p className="text-4xl my-4 mx-8">{content.data.page_lead}</p>
+      <div>
         {blogPosts.map((post) => (
-          <li key={post.id}>
-            <h2 className="text-8xl">{post.data.post_title}</h2>
-            <p className="text-4xl">{post.data.post_lead}</p>
-          </li>
+          <BlogPostPreview post={post} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
