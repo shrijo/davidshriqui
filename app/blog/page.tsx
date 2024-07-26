@@ -8,8 +8,8 @@ export default async function Blog() {
 
   return (
     <div>
-      <h1 className="text-8xl my-8 mx-8">{content.data.page_title}</h1>
-      <p className="text-4xl my-4 mx-8">{content.data.page_lead}</p>
+      <h1>{content.data.page_title}</h1>
+      <p>{content.data.page_lead}</p>
       <div>
         {blogPosts.map((post) => (
           <BlogPostPreview post={post} />

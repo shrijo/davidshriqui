@@ -3,6 +3,7 @@
 import React from "react";
 import { PrismicNextLink } from "@prismicio/next";
 import { createClient } from "@/prismicio";
+import "./Navigation.css";
 
 async function Navigation() {
   const client = createClient();
@@ -10,8 +11,10 @@ async function Navigation() {
 
   return (
     <nav>
-      <h1>{settings.data.title}</h1>
-      <ul className="inline-flex">
+      <PrismicNextLink href="/" className="logo">
+        {settings.data.title}
+      </PrismicNextLink>
+      <ul className="nav-links">
         {/* Renders top-level links. */}
         {settings.data.navigation.map((item) => {
           return (
