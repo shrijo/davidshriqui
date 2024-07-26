@@ -12,7 +12,7 @@ export default async function Blog() {
       <p>{content.data.page_lead}</p>
       <div>
         {blogPosts.map((post) => (
-          <BlogPostPreview post={post} />
+          <BlogPostPreview key={post.data.post_title} post={post} />
         ))}
       </div>
     </div>
