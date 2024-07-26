@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  flex-grow: 1;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
