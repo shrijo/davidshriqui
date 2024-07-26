@@ -10,15 +10,14 @@ async function Navigation() {
     <nav>
       <p className="logo">{settings.data.title}</p>
       <div className="nav-links">
-        {settings.data.navigation.map((item) => {
-          return (
-            <div key={item.navigation_link_title}>
-              <PrismicNextLink field={item.navigation_link}>
-                <p>{item.navigation_link_title}</p>
-              </PrismicNextLink>
-            </div>
-          );
-        })}
+        {settings.data.navigation.map((item) => (
+          <PrismicNextLink
+            key={item.navigation_link_title}
+            field={item.navigation_link}
+          >
+            <p>{item.navigation_link_title}</p>
+          </PrismicNextLink>
+        ))}
       </div>
     </nav>
   );
