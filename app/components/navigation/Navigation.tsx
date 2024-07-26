@@ -15,7 +15,7 @@ async function Navigation() {
         {/* Renders top-level links. */}
         {settings.data.navigation.map((item) => {
           return (
-            <li key={item.id}>
+            <li key={item.navigation_link_title}>
               <PrismicNextLink field={item.navigation_link}>
                 <p>{item.navigation_link_title}</p>
               </PrismicNextLink>
