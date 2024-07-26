@@ -1,4 +1,3 @@
-import React from "react";
 import { PrismicNextLink } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 import "./Navigation.css";
