@@ -7,7 +7,7 @@ export default async function Services() {
   return (
     <div>
       <h1>{content.data.page_title}</h1>
-      <p>{content.data.page_lead}</p>
+      <p className="lead-text">{content.data.page_lead}</p>
       <ul>
         {services.map((service) => (
           <li key={service.id}>

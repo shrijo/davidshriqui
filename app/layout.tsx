@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Providers } from "./providers";
 import { Manrope } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
@@ -18,10 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={font.className}>
-        <Navigation />
-        <div className="container">{children}</div>
+        <Providers>
+          <Navigation />
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );
