@@ -8,7 +8,9 @@ async function Navigation() {
 
   return (
     <nav>
-      <p className="logo">{settings.data.title}</p>
+      <a className="logo" href="/">
+        {settings.data.title}
+      </a>
       <div className="nav-links">
         {settings.data.navigation.map((item) => (
           <PrismicNextLink

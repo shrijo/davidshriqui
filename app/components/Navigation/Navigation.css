@@ -1,14 +1,19 @@
 nav {
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid #ccc;
+  padding: 0 20px;
+  line-height: 40px;
 }
 
 .logo {
   flex-grow: 1;
+  font-weight: 700;
 }
 
 .nav-links {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+  gap: 10px;
 }

@@ -428,6 +428,49 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 /**
+ * Content for Project documents
+ */
+interface ProjectDocumentData {
+  /**
+   * Project Title field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.project_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_title: prismic.KeyTextField;
+
+  /**
+   * Project Description field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.project_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_description: prismic.KeyTextField;
+}
+
+/**
+ * Project document from Prismic
+ *
+ * - **API ID**: `project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectDocumentData>,
+    "project",
+    Lang
+  >;
+
+/**
  * Content for Service documents
  */
 interface ServiceDocumentData {
@@ -636,15 +679,89 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+type WorkDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Work documents
+ */
+interface WorkDocumentData {
+  /**
+   * Page Title field in *Work*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.page_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  page_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Work*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<WorkDocumentDataSlicesSlice> /**
+   * Meta Title field in *Work*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: work.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Work*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: work.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Work*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Work document from Prismic
+ *
+ * - **API ID**: `work`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type WorkDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<WorkDocumentData>, "work", Lang>;
+
 export type AllDocumentTypes =
   | AboutDocument
   | BlogDocument
   | BlogPostDocument
   | ContactDocument
   | HomeDocument
+  | ProjectDocument
   | ServiceDocument
   | ServicesDocument
-  | SettingsDocument;
+  | SettingsDocument
+  | WorkDocument;
 
 /**
  * Default variation for Hero Slice
@@ -698,6 +815,8 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      ProjectDocument,
+      ProjectDocumentData,
       ServiceDocument,
       ServiceDocumentData,
       ServicesDocument,
@@ -706,6 +825,9 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
+      WorkDocument,
+      WorkDocumentData,
+      WorkDocumentDataSlicesSlice,
       AllDocumentTypes,
       HeroSlice,
       HeroSliceVariation,

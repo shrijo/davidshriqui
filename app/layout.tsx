@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Navigation from "./components/Navigation/Navigation";
 
-const inter = Inter({ subsets: ["latin"] });
+//const font = Manrope({ subsets: ["latin"] });
+const font = GeistSans;
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={font.className}>
         <Navigation />
         <div className="container">{children}</div>
       </body>
