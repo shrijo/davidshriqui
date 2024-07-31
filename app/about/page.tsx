@@ -19,7 +19,7 @@ export default async function About() {
           <li key={cv.job}>{cv.job}</li>
         ))}
         {content.data.education.map((edu) => (
-          <li key={edu.job}>{edu.education_title}</li>
+          <li key={edu.education_title}>{edu.education_title}</li>
         ))}
       </ul>
     </div>
