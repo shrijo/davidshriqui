@@ -10,7 +10,7 @@ export default async function Services() {
       <p className="lead-text">{content.data.page_description}</p>
       <ul>
         {content.data.projects.map((project) => (
-          <li key={project.id}>
+          <li key={project.project_title}>
             <h2>{project.project_title}</h2>
             <PrismicRichText field={project.project_description} />
             {/* <PrismicRichText field={service.data.service_description} /> */}
