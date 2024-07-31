@@ -1,4 +1,5 @@
 import { createClient } from "@/prismicio";
+import { PrismicRichText } from "@prismicio/react";
 
 export default async function Services() {
   const client = createClient();
@@ -12,7 +13,8 @@ export default async function Services() {
         {services.map((service) => (
           <li key={service.id}>
             <h2>{service.data.service_title}</h2>
-            <p>{service.data.service_description}</p>
+            <PrismicRichText field={service.data.service_description} />
+            {/* <PrismicRichText field={service.data.service_description} /> */}
           </li>
         ))}
       </ul>

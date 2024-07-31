@@ -20,6 +20,68 @@
           "placeholder": ""
         }
       },
+      "values": {
+        "type": "Group",
+        "config": {
+          "label": "Values",
+          "repeat": true,
+          "fields": {
+            "value_title": {
+              "type": "Text",
+              "config": {
+                "label": "Value Title",
+                "placeholder": ""
+              }
+            },
+            "value_subtitle": {
+              "type": "Text",
+              "config": {
+                "label": "Value Subtitle",
+                "placeholder": ""
+              }
+            },
+            "value_text": {
+              "type": "Text",
+              "config": {
+                "label": "Value Text",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "curriculum_vitae": {
+        "type": "Group",
+        "config": {
+          "label": "Curriculum Vitae",
+          "repeat": true,
+          "fields": {
+            "job": {
+              "type": "Text",
+              "config": {
+                "label": "Job",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "education": {
+        "type": "Group",
+        "config": {
+          "label": "Education",
+          "repeat": true,
+          "fields": {
+            "education_title": {
+              "type": "Text",
+              "config": {
+                "label": "Education Title",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

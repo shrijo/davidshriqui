@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *About → Values*
+ */
+export interface AboutDocumentDataValuesItem {
+  /**
+   * Value Title field in *About → Values*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.values[].value_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  value_title: prismic.KeyTextField;
+
+  /**
+   * Value Subtitle field in *About → Values*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.values[].value_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  value_subtitle: prismic.KeyTextField;
+
+  /**
+   * Value Text field in *About → Values*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.values[].value_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  value_text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *About → Curriculum Vitae*
+ */
+export interface AboutDocumentDataCurriculumVitaeItem {
+  /**
+   * Job field in *About → Curriculum Vitae*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.curriculum_vitae[].job
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  job: prismic.KeyTextField;
+}
+
+/**
+ * Item in *About → Education*
+ */
+export interface AboutDocumentDataEducationItem {
+  /**
+   * Education Title field in *About → Education*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education[].education_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  education_title: prismic.KeyTextField;
+}
+
 type AboutDocumentDataSlicesSlice = never;
 
 /**
@@ -31,6 +96,41 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   page_lead: prismic.KeyTextField;
+
+  /**
+   * Values field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.values[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  values: prismic.GroupField<Simplify<AboutDocumentDataValuesItem>>;
+
+  /**
+   * Curriculum Vitae field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.curriculum_vitae[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  curriculum_vitae: prismic.GroupField<
+    Simplify<AboutDocumentDataCurriculumVitaeItem>
+  >;
+
+  /**
+   * Education field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  education: prismic.GroupField<Simplify<AboutDocumentDataEducationItem>>;
 
   /**
    * Slice Zone field in *About*
@@ -488,13 +588,13 @@ interface ServiceDocumentData {
   /**
    * Service Description field in *Service*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: service.service_description
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  service_description: prismic.KeyTextField;
+  service_description: prismic.RichTextField;
 }
 
 /**
@@ -679,6 +779,31 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Work → Projects*
+ */
+export interface WorkDocumentDataProjectsItem {
+  /**
+   * Project Title field in *Work → Projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.projects[].project_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_title: prismic.KeyTextField;
+
+  /**
+   * Project Description field in *Work → Projects*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.projects[].project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
 type WorkDocumentDataSlicesSlice = never;
 
 /**
@@ -695,6 +820,28 @@ interface WorkDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   page_title: prismic.KeyTextField;
+
+  /**
+   * Page Description field in *Work*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.page_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  page_description: prismic.KeyTextField;
+
+  /**
+   * Projects field in *Work*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.projects[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  projects: prismic.GroupField<Simplify<WorkDocumentDataProjectsItem>>;
 
   /**
    * Slice Zone field in *Work*
@@ -802,6 +949,9 @@ declare module "@prismicio/client" {
     export type {
       AboutDocument,
       AboutDocumentData,
+      AboutDocumentDataValuesItem,
+      AboutDocumentDataCurriculumVitaeItem,
+      AboutDocumentDataEducationItem,
       AboutDocumentDataSlicesSlice,
       BlogDocument,
       BlogDocumentData,
@@ -827,6 +977,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavigationItem,
       WorkDocument,
       WorkDocumentData,
+      WorkDocumentDataProjectsItem,
       WorkDocumentDataSlicesSlice,
       AllDocumentTypes,
       HeroSlice,

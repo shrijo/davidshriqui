@@ -12,12 +12,13 @@ async function BlogPostPreview(props: BlogPostPreviewProps) {
   const client = createClient();
   const post = await client.getByUID("blog_post", props.post.uid);
   return (
-    <div className="blog-post-preview">
-      <PrismicNextLink href={`/blog/${post.uid}`}>
+    <PrismicNextLink className="blog-post-preview" href={`/blog/${post.uid}`}>
+      <div className="image-wrapper bg-slate-500 dark:bg-slate-100"></div>
+      <div className="text-wrapper">
         <h2>{post.data.post_title}</h2>
         <p>{post.data.post_lead}</p>
-      </PrismicNextLink>
-    </div>
+      </div>
+    </PrismicNextLink>
   );
 }
 
