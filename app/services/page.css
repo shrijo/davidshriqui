@@ -1,0 +1,16 @@
+.service-block {
+  border: 1px solid #ccc;
+  margin: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+ul {
+  margin: 10px 20px;
+  list-style-type: disc;
+  padding: 0;
+}
+
+li {
+  padding: 3px 0;
+}

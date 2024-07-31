@@ -6,6 +6,7 @@
 body {
   font-size: 100%;
   transition: color 1s ease-in-out;
+  box-sizing: border-box;
 }
 
 main {
@@ -22,7 +23,6 @@ main {
   }
 
   h2 {
-    padding: 20px 20px 10px;
     font-size: 1.5rem;
     line-height: 100%;
     font-weight: 600;
@@ -30,7 +30,6 @@ main {
   }
 
   h3 {
-    padding: 10px 20px 10px;
     font-size: 1.2rem;
     line-height: 100%;
     font-weight: 600;
@@ -47,21 +46,9 @@ main {
   }
 
   p {
-    padding: 5px 20px;
     font-size: 1.2rem;
     font-weight: 200;
     line-height: 120%;
-  }
-
-  ul {
-    padding: 20px 40px;
-    font-size: 1.2rem;
-    font-weight: 200;
-    line-height: 120%;
-    list-style: disc;
-  }
-  li {
-    padding: 5px 0;
   }
 }
 
