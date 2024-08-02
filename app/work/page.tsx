@@ -23,7 +23,7 @@ export default async function Services() {
                 className="tag bg-black dark:bg-white text-white dark:text-black"
                 field={project.project_type}
               >
-                {project.project_type.uid}
+                Link
               </PrismicNextLink>
             </div>
           </div>
