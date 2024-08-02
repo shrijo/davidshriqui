@@ -802,6 +802,26 @@ export interface WorkDocumentDataProjectsItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   project_description: prismic.RichTextField;
+
+  /**
+   * Project Type field in *Work → Projects*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.projects[].project_type
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_type: prismic.ContentRelationshipField<"service">;
+
+  /**
+   * Project Image field in *Work → Projects*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.projects[].project_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  project_image: prismic.ImageField<never>;
 }
 
 type WorkDocumentDataSlicesSlice = never;
