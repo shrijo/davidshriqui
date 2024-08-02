@@ -15,7 +15,7 @@ export default function ThemeSwitch() {
 
   return (
     <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-      {theme === "dark" ? "Light" : "Dark"}
+      {theme === "dark" ? "Light" : "Dark"} Mode
     </button>
   );
 }

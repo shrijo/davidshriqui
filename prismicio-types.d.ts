@@ -98,6 +98,17 @@ interface AboutDocumentData {
   page_lead: prismic.KeyTextField;
 
   /**
+   * Values Main Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.values_main_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  values_main_title: prismic.KeyTextField;
+
+  /**
    * Values field in *About*
    *
    * - **Field Type**: Group
@@ -107,6 +118,17 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   values: prismic.GroupField<Simplify<AboutDocumentDataValuesItem>>;
+
+  /**
+   * CV Main Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.cv_main_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cv_main_title: prismic.KeyTextField;
 
   /**
    * Curriculum Vitae field in *About*
@@ -120,6 +142,17 @@ interface AboutDocumentData {
   curriculum_vitae: prismic.GroupField<
     Simplify<AboutDocumentDataCurriculumVitaeItem>
   >;
+
+  /**
+   * Education Main Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education_main_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  education_main_title: prismic.KeyTextField;
 
   /**
    * Education field in *About*

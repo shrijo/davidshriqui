@@ -15,17 +15,17 @@ export default async function Services() {
       {content.data.projects.map((project) => (
         <div className="work-box" key={project.project_title}>
           <PrismicNextImage field={project.project_image} />
-          <div>
+          <div className="project-content">
             <h2>{project.project_title}</h2>
-            <PrismicRichText field={project.project_description} />
             <div className="tags">
               <PrismicNextLink
-                className="tag bg-black dark:bg-white text-white dark:text-black"
+                className="tag  text-black dark:text-white border-solid border-white dark:border-white border-solid"
                 field={project.project_type}
               >
                 Link
               </PrismicNextLink>
             </div>
+            <PrismicRichText field={project.project_description} />
           </div>
         </div>
       ))}

@@ -1,15 +1,30 @@
 .work-box {
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
   max-width: 100%;
   align-items: flex-start;
+  margin-bottom: 40px;
+
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: clamp(300px, 80%, 900px);
+  }
+
   h2 {
-    margin-bottom: 10px;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.2rem;
+    line-height: 130%;
   }
   img {
-    max-width: 60%;
+    margin-bottom: 20px;
+    width: 100%;
     object-fit: contain;
   }
 
@@ -23,5 +38,9 @@
     font-size: 0.8rem;
     padding: 5px 10px;
     border-radius: 5px;
+    border: solid 1px;
+  }
+  p a {
+    line-height: 60px;
   }
 }

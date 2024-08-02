@@ -20,6 +20,13 @@
           "placeholder": ""
         }
       },
+      "values_main_title": {
+        "type": "Text",
+        "config": {
+          "label": "Values Main Title",
+          "placeholder": ""
+        }
+      },
       "values": {
         "type": "Group",
         "config": {
@@ -50,6 +57,13 @@
           }
         }
       },
+      "cv_main_title": {
+        "type": "Text",
+        "config": {
+          "label": "CV Main Title",
+          "placeholder": ""
+        }
+      },
       "curriculum_vitae": {
         "type": "Group",
         "config": {
@@ -64,6 +78,13 @@
               }
             }
           }
+        }
+      },
+      "education_main_title": {
+        "type": "Text",
+        "config": {
+          "label": "Education Main Title",
+          "placeholder": ""
         }
       },
       "education": {

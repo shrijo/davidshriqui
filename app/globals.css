@@ -11,15 +11,13 @@ body {
 
 main {
   h1 {
-    padding: 40px 20px;
+    padding: 40px 20px 0px;
     font-size: 8rem;
     line-height: 100%;
     letter-spacing: -0.05em;
     text-transform: uppercase;
     font-weight: 900;
     margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    background-color: linear-gradient(90deg, #f6f6f6, #fff);
   }
 
   h2 {
@@ -30,9 +28,10 @@ main {
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
     line-height: 100%;
-    font-weight: 600;
+    font-weight: 200;
     margin: 0px;
     opacity: 0.5;
   }

@@ -2,6 +2,8 @@ import { PrismicNextLink } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
 import "./Navigation.css";
+import Menu from "@geist-ui/icons/menu";
+import Cross from "@geist-ui/icons/x";
 
 async function Navigation() {
   const client = createClient();
@@ -15,7 +17,11 @@ async function Navigation() {
         </a>
       </div>
       <div className="nav-second-half">
+        <input type="checkbox" id="sidebar-active" />
         <div className="nav-links">
+          <label htmlFor="sidebar-active" className="close-sidebar-button">
+            <Cross />
+          </label>
           {settings.data.navigation.map((item) => (
             <PrismicNextLink
               key={item.navigation_link_title}
@@ -24,8 +30,14 @@ async function Navigation() {
               <p>{item.navigation_link_title}</p>
             </PrismicNextLink>
           ))}
+          <div className="toggle-theme">
+            <ThemeSwitch />
+          </div>
         </div>
-        <ThemeSwitch />
+
+        <label htmlFor="sidebar-active" className="open-sidebar-button">
+          <Menu />
+        </label>
       </div>
     </nav>
   );

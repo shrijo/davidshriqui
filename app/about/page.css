@@ -1,0 +1,45 @@
+.values_wrapper {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+.value_box {
+  padding: 20px;
+  border: 1px solid;
+  width: 49%;
+}
+
+h2,
+h3 {
+  margin-bottom: 10px !important;
+}
+
+.cv_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+
+  .cv_entry {
+    padding: 20px;
+    border-left: 1px solid;
+    position: relative;
+  }
+
+  .cv_entry::after {
+    content: "";
+    position: absolute;
+
+    width: 15px;
+    height: 15px;
+    left: -7px;
+    background-color: black;
+    border: 1px solid white;
+    top: 24px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+}
