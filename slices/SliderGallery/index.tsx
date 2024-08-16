@@ -1,11 +1,9 @@
 "use client";
 
-import { Content } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback } from "react";
 import "./styles.css";
-import { Content } from "";
 
 /**
  * Props for `SliderGallery`.
