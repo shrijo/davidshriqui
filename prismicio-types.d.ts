@@ -994,6 +994,108 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Item in *Project → Default → Primary → Project Slide*
+ */
+export interface ProjectSliceDefaultPrimaryProjectSlideItem {
+  /**
+   * Project Slide Image field in *Project → Default → Primary → Project Slide*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.project_slide[].project_slide_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  project_slide_image: prismic.ImageField<never>;
+
+  /**
+   * Project Slide Video field in *Project → Default → Primary → Project Slide*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.project_slide[].project_slide_video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  project_slide_video: prismic.EmbedField;
+
+  /**
+   * Project Slide Text field in *Project → Default → Primary → Project Slide*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.project_slide[].project_slide_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_slide_text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Project → Default → Primary*
+ */
+export interface ProjectSliceDefaultPrimary {
+  /**
+   * Project Title field in *Project → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.project_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_title: prismic.KeyTextField;
+
+  /**
+   * Project Text field in *Project → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.project_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_text: prismic.RichTextField;
+
+  /**
+   * Project Slide field in *Project → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.project_slide[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  project_slide: prismic.GroupField<
+    Simplify<ProjectSliceDefaultPrimaryProjectSlideItem>
+  >;
+}
+
+/**
+ * Default variation for Project Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Project*
+ */
+type ProjectSliceVariation = ProjectSliceDefault;
+
+/**
+ * Project Shared Slice
+ *
+ * - **API ID**: `project`
+ * - **Description**: Project
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectSlice = prismic.SharedSlice<
+  "project",
+  ProjectSliceVariation
+>;
+
+/**
  * Item in *SliderGallery → Default → Primary → Slide*
  */
 export interface SliderGallerySliceDefaultPrimarySlideItem {
@@ -1122,6 +1224,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ProjectSlice,
+      ProjectSliceDefaultPrimaryProjectSlideItem,
+      ProjectSliceDefaultPrimary,
+      ProjectSliceVariation,
+      ProjectSliceDefault,
       SliderGallerySlice,
       SliderGallerySliceDefaultPrimarySlideItem,
       SliderGallerySliceDefaultPrimary,
