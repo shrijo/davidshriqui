@@ -2,7 +2,30 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"page_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Struck"
+						}
+					}
+				]
+			},
+			"page_lead": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est consequat nostrud officia pariatur laborum duis ad voluptate magna magna. Nostrud occaecat nulla ea eiusmod aliquip eu. Minim consequat ad cillum pariatur deserunt exercitation excepteur Lorem magna Lorem consequat reprehenderit sint sint."
+						}
+					}
+				]
+			}
+		},
 		"items": []
 	}
 ]

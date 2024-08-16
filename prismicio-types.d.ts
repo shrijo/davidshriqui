@@ -477,34 +477,12 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = SliderGallerySlice | HeroSlice;
 
 /**
  * Content for Home documents
  */
 interface HomeDocumentData {
-  /**
-   * Page Title field in *Home*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.page_title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  page_title: prismic.KeyTextField;
-
-  /**
-   * Page Lead field in *Home*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.page_lead
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  page_lead: prismic.KeyTextField;
-
   /**
    * Slice Zone field in *Home*
    *
@@ -964,6 +942,31 @@ export type AllDocumentTypes =
   | WorkDocument;
 
 /**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Page Title field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.page_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  page_title: prismic.TitleField;
+
+  /**
+   * Page Lead field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.page_lead
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  page_lead: prismic.RichTextField;
+}
+
+/**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
@@ -972,7 +975,7 @@ export type AllDocumentTypes =
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<HeroSliceDefaultPrimary>,
   never
 >;
 
@@ -989,6 +992,88 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *SliderGallery → Default → Primary → Slide*
+ */
+export interface SliderGallerySliceDefaultPrimarySlideItem {
+  /**
+   * Slide Title field in *SliderGallery → Default → Primary → Slide*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_gallery.default.primary.slide[].slide_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  slide_title: prismic.RichTextField;
+
+  /**
+   * Slide Video field in *SliderGallery → Default → Primary → Slide*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_gallery.default.primary.slide[].slide_video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  slide_video: prismic.EmbedField;
+
+  /**
+   * Slide Image field in *SliderGallery → Default → Primary → Slide*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_gallery.default.primary.slide[].slide_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  slide_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *SliderGallery → Default → Primary*
+ */
+export interface SliderGallerySliceDefaultPrimary {
+  /**
+   * Slide field in *SliderGallery → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_gallery.default.primary.slide[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  slide: prismic.GroupField<
+    Simplify<SliderGallerySliceDefaultPrimarySlideItem>
+  >;
+}
+
+/**
+ * Default variation for SliderGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SliderGallerySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SliderGallery*
+ */
+type SliderGallerySliceVariation = SliderGallerySliceDefault;
+
+/**
+ * SliderGallery Shared Slice
+ *
+ * - **API ID**: `slider_gallery`
+ * - **Description**: SliderGallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderGallerySlice = prismic.SharedSlice<
+  "slider_gallery",
+  SliderGallerySliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -1034,8 +1119,14 @@ declare module "@prismicio/client" {
       WorkDocumentDataSlicesSlice,
       AllDocumentTypes,
       HeroSlice,
+      HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      SliderGallerySlice,
+      SliderGallerySliceDefaultPrimarySlideItem,
+      SliderGallerySliceDefaultPrimary,
+      SliderGallerySliceVariation,
+      SliderGallerySliceDefault,
     };
   }
 }

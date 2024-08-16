@@ -1,0 +1,5 @@
+.hero p {
+  font-size: 2rem;
+  padding: 20px;
+  width: clamp(300px, 80%, 1200px);
+}

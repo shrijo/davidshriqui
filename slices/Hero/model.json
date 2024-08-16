@@ -10,7 +10,28 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {
+        "page_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Page Title",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading1"
+          }
+        },
+        "page_lead": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Page Lead",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
