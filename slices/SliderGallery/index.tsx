@@ -4,6 +4,8 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback } from "react";
+import { ArrowLeftCircle, ArrowRightCircle } from "@geist-ui/icons";
+
 import "./styles.css";
 
 /**
@@ -57,10 +59,10 @@ const SliderGallery = ({ slice }: SliderGalleryProps): JSX.Element => {
           ))}
         </div>
         <button className="embla__prev" onClick={scrollPrev}>
-          Prev
+          <ArrowLeftCircle size={36} />
         </button>
         <button className="embla__next" onClick={scrollNext}>
-          Next
+          <ArrowRightCircle size={36} />
         </button>
       </div>
     </section>
