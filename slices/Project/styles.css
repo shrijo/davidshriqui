@@ -1,4 +1,4 @@
-.embla {
+a.embla {
   overflow: hidden;
   position: relative;
 }
@@ -46,4 +46,28 @@ button {
 .narrow {
   max-width: 80vw;
   margin: 0 auto;
+}
+
+.single-slide__image,
+.single-slide__video {
+  width: 80vw;
+  height: calc(80vw * 0.5625);
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.project-text {
+  p {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    width: clamp(300px, 80%, 1200px);
+  }
+  padding: 20px 0;
+}
+.project-title {
+  font-size: 3rem;
+  line-height: 100%;
+  font-weight: 600;
+  padding-bottom: 20px;
 }

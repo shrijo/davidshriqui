@@ -3,16 +3,26 @@
 @tailwind utilities;
 
 /* Container */
+
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-size: 100%;
   transition: color 1s ease-in-out;
   box-sizing: border-box;
 }
 
+.narrow {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
 main {
+  position: relative;
   h1 {
-    padding: 40px 20px 0px;
-    font-size: 8rem;
+    padding: 10px 0px 20px;
+    font-size: 4rem;
     line-height: 100%;
     letter-spacing: -0.05em;
     text-transform: uppercase;
@@ -28,26 +38,25 @@ main {
   }
 
   h3 {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 700;
     line-height: 100%;
-    font-weight: 200;
-    margin: 0px;
-    opacity: 0.5;
+    margin: 0px 0px 15px;
   }
 
-  .lead-text {
-    padding: 20px;
+  p,
+  li {
     font-size: 2rem;
     font-weight: 200;
-    line-height: 115%;
-    font-style: italic;
-  }
-
-  p {
-    font-size: 1.2rem;
-    font-weight: 200;
     line-height: 120%;
+  }
+  ul {
+    list-style-position: inside;
+    padding-left: 0; /* Remove default padding */
+    margin-left: 0; /* Remove default margin */
+  }
+  img {
+    padding: 40px 0;
   }
 }
 

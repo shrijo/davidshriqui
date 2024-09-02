@@ -14,7 +14,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <section
-      className="hero"
+      className="hero narrow"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

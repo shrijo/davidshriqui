@@ -303,7 +303,32 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
-type BlogPostDocumentDataSlicesSlice = never;
+/**
+ * Item in *Blog Post → Post Chapters*
+ */
+export interface BlogPostDocumentDataPostChaptersItem {
+  /**
+   * Post Chapter Title field in *Blog Post → Post Chapters*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.post_chapters[].post_chapter_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  post_chapter_title: prismic.KeyTextField;
+
+  /**
+   * Post Chapter Text field in *Blog Post → Post Chapters*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.post_chapters[].post_chapter_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  post_chapter_text: prismic.RichTextField;
+}
+
+type BlogPostDocumentDataSlicesSlice = ChaptersSlice;
 
 /**
  * Content for Blog Post documents
@@ -330,6 +355,41 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   post_lead: prismic.KeyTextField;
+
+  /**
+   * Post Preview Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.post_preview_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  post_preview_image: prismic.ImageField<never>;
+
+  /**
+   * Post Content field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.post_content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  post_content: prismic.RichTextField;
+
+  /**
+   * Post Chapters field in *Blog Post*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.post_chapters[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  post_chapters: prismic.GroupField<
+    Simplify<BlogPostDocumentDataPostChaptersItem>
+  >;
 
   /**
    * Slice Zone field in *Blog Post*
@@ -835,7 +895,7 @@ export interface WorkDocumentDataProjectsItem {
   project_image: prismic.ImageField<never>;
 }
 
-type WorkDocumentDataSlicesSlice = never;
+type WorkDocumentDataSlicesSlice = ProjectSlice;
 
 /**
  * Content for Work documents
@@ -940,6 +1000,78 @@ export type AllDocumentTypes =
   | ServicesDocument
   | SettingsDocument
   | WorkDocument;
+
+/**
+ * Item in *Chapters → Default → Primary → Chapter Content*
+ */
+export interface ChaptersSliceDefaultPrimaryChapterContentItem {
+  /**
+   * Chapter Title field in *Chapters → Default → Primary → Chapter Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chapters.default.primary.chapter_content[].chapter_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chapter_title: prismic.KeyTextField;
+
+  /**
+   * Chapter Text field in *Chapters → Default → Primary → Chapter Content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chapters.default.primary.chapter_content[].chapter_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  chapter_text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Chapters → Default → Primary*
+ */
+export interface ChaptersSliceDefaultPrimary {
+  /**
+   * Chapter Content field in *Chapters → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chapters.default.primary.chapter_content[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  chapter_content: prismic.GroupField<
+    Simplify<ChaptersSliceDefaultPrimaryChapterContentItem>
+  >;
+}
+
+/**
+ * Default variation for Chapters Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ChaptersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ChaptersSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Chapters*
+ */
+type ChaptersSliceVariation = ChaptersSliceDefault;
+
+/**
+ * Chapters Shared Slice
+ *
+ * - **API ID**: `chapters`
+ * - **Description**: Chapters
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ChaptersSlice = prismic.SharedSlice<
+  "chapters",
+  ChaptersSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -1198,6 +1330,7 @@ declare module "@prismicio/client" {
       BlogDocumentDataSlicesSlice,
       BlogPostDocument,
       BlogPostDocumentData,
+      BlogPostDocumentDataPostChaptersItem,
       BlogPostDocumentDataSlicesSlice,
       ContactDocument,
       ContactDocumentData,
@@ -1220,6 +1353,11 @@ declare module "@prismicio/client" {
       WorkDocumentDataProjectsItem,
       WorkDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ChaptersSlice,
+      ChaptersSliceDefaultPrimaryChapterContentItem,
+      ChaptersSliceDefaultPrimary,
+      ChaptersSliceVariation,
+      ChaptersSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

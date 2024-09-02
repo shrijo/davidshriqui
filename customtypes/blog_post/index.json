@@ -26,11 +26,57 @@
           "placeholder": ""
         }
       },
+      "post_preview_image": {
+        "type": "Image",
+        "config": {
+          "label": "Post Preview Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "post_content": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Post Content",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "post_chapters": {
+        "type": "Group",
+        "config": {
+          "label": "Post Chapters",
+          "repeat": true,
+          "fields": {
+            "post_chapter_title": {
+              "type": "Text",
+              "config": {
+                "label": "Post Chapter Title",
+                "placeholder": ""
+              }
+            },
+            "post_chapter_text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Post Chapter Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "chapters": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

@@ -1,15 +1,19 @@
 nav {
-  width: 100%;
-  position: relative;
+  margin: 0 10px;
+  width: calc(100% - 20px);
+  position: fixed;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid #ccc;
   padding: 0 20px;
   line-height: 100%;
   height: 40px;
-  position: sticky;
-  top: 0;
+  top: 10px;
+  z-index: 1000;
+  opacity: 0.9; /* Slightly increase opacity for better visibility */
+  backdrop-filter: blur(10px); /* Adjust blur for frosted glass effect */
+  border-radius: 20px; /* Optional: rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
 }
 
 .nav-first-half {
