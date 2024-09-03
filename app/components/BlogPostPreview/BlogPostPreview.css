@@ -1,19 +1,38 @@
 .blog-post-preview {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  margin: 20px;
   gap: 20px;
+  overflow: hidden; /* Ensure the zoomed image doesn't overflow */
 }
 .image-wrapper {
-  width: 50%;
-  align-self: stretch;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
 }
+
+.blog-post-preview img {
+  padding: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
+}
+
 .text-wrapper {
-  padding: 20px 0;
   align-items: start;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 50%;
+}
+
+.blog-post-preview:hover img {
+  transform: scale(1.1); /* Zoom in the image */
+}
+
+.blog-post-preview p {
+  font-size: 1.4rem;
+}
+
+.blog-post-preview h2 {
+  font-size: 1.4rem;
+  line-height: 120%;
 }

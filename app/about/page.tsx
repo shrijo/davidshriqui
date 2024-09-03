@@ -5,7 +5,7 @@ export default async function About() {
   const client = createClient();
   const content = await client.getSingle("about");
   return (
-    <div>
+    <div className="narrow">
       <h1>{content.data.page_title}</h1>
       <p className="lead-text">{content.data.page_lead}</p>
       <h2>{content.data.values_main_title}</h2>

@@ -1,4 +1,13 @@
 .posts-wrapper {
-  display: flex;
-  flex-direction: column;
+  margin: 40px 0;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* Adjust the gap between the posts as needed */
+}
+
+.posts-grid > * {
+  width: 100%; /* Ensure each post takes up the full width of its grid cell */
 }

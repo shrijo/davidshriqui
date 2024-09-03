@@ -7,7 +7,7 @@ export default async function Services() {
   const content = await client.getSingle("services");
   const services = await client.getAllByType("service");
   return (
-    <div>
+    <div className="narrow">
       <h1>{content.data.page_title}</h1>
       <p className="lead-text">{content.data.page_lead}</p>
       <div className="services-wrapper">

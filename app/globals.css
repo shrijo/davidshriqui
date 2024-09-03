@@ -19,6 +19,7 @@ body {
 }
 
 main {
+  padding: 120px 0;
   position: relative;
   h1 {
     padding: 10px 0px 20px;
