@@ -39,4 +39,8 @@ li {
 
 .page {
   margin-top: 120px;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }

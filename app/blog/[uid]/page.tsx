@@ -16,6 +16,8 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("blog_post", params.uid)
     .catch(() => notFound());
 
+  console.log(page.data.post_chapters);
+
   return (
     <div className="page">
       <div className="narrow">
@@ -28,40 +30,38 @@ export default async function Page({ params }: { params: Params }) {
         <PrismicRichText field={page.data.post_content}></PrismicRichText>
         <div className="content-layout">
           <div className="content-left">
-            <ul className="table-of-contents ">
-              <h4>Inhaltsverzeichnis:</h4>
-              {page.data.post_chapters.map((item: any, index: any) => {
-                return (
-                  <li key={index}>
-                    <a
-                      href={`#chapter-${index}`}
-                      className="table-of-contents-link"
-                    >
-                      {item.post_chapter_title}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            {page.data.post_chapters && page.data.post_chapters.length > 0 && (
+              <>
+                <h4>Inhaltsverzeichnis:</h4>
+                <ul className="table-of-contents">
+                  {page.data.post_chapters.map((item: any, index: any) => (
+                    <li key={index}>
+                      <a
+                        href={`#chapter-${index}`}
+                        className="table-of-contents-link"
+                      >
+                        {item.post_chapter_title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
           <div className="content-right">
-            {page.data.post_chapters.map((item: any, index: any) => {
-              return (
-                <div
-                  className="chapter-wrapper"
-                  id={`chapter-${index}`}
-                  key={index}
-                >
-                  <h3 className="chapter-title">{item.post_chapter_title}</h3>
-                  <PrismicRichText field={item.post_chapter_text} />
-                </div>
-              );
-            })}
+            {page.data.post_chapters.map((item: any, index: any) => (
+              <div
+                className="chapter-wrapper"
+                id={`chapter-${index}`}
+                key={index}
+              >
+                <h3>{item.post_chapter_title}</h3>
+                <PrismicRichText field={item.post_chapter_text} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
-      <SliceZone slices={page.data.slices} components={components} />
     </div>
   );
 }
