@@ -12,10 +12,10 @@ export default async function About() {
       <div className="values_wrapper">
         {content.data.values.map((value) => (
           <div
-            className="value_box border-solid border-black dark:border-white"
+            className="value_box border-solid bg-gray-100 dark:bg-neutral-800"
             key={value.value_title}
           >
-            <h2>{value.value_title}</h2>
+            <h4>{value.value_title}</h4>
             <h3>{value.value_subtitle}</h3>
             <p>{value.value_text}</p>
           </div>

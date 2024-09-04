@@ -6,25 +6,15 @@
   "status": true,
   "json": {
     "Main": {
-      "page_title": {
-        "type": "Text",
-        "config": {
-          "label": "Page Title",
-          "placeholder": ""
-        }
-      },
-      "page_lead": {
-        "type": "Text",
-        "config": {
-          "label": "Page Lead",
-          "placeholder": ""
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

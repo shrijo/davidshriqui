@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: Params }) {
   console.log(page.data.post_chapters);
 
   return (
-    <div className="page">
+    <div>
       <div className="narrow">
         <a href="/blog">Back to blog</a>
         <h1>{page.data.post_title}</h1>

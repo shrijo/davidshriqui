@@ -52,7 +52,7 @@ main {
     line-height: 120%;
   }
   ul {
-    list-style-position: inside;
+    list-style-position: outside;
     padding-left: 0; /* Remove default padding */
     margin-left: 0; /* Remove default margin */
   }

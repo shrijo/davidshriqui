@@ -37,10 +37,6 @@ li {
   padding: 20px 0;
 }
 
-.page {
-  margin-top: 120px;
-  img {
-    width: 100%;
-    height: auto;
-  }
+img {
+  width: 100%;
 }
