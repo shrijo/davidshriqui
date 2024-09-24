@@ -240,13 +240,13 @@ interface BlogDocumentData {
   /**
    * Page Lead field in *Blog*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: blog.page_lead
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  page_lead: prismic.KeyTextField;
+  page_lead: prismic.RichTextField;
 
   /**
    * Slice Zone field in *Blog*
