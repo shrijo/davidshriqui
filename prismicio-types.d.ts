@@ -238,15 +238,15 @@ interface BlogDocumentData {
   page_title: prismic.KeyTextField;
 
   /**
-   * Page Lead field in *Blog*
+   * Blog Lead field in *Blog*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog.page_lead
+   * - **API ID Path**: blog.blog_lead
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  page_lead: prismic.RichTextField;
+  blog_lead: prismic.RichTextField;
 
   /**
    * Slice Zone field in *Blog*

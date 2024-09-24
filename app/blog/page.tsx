@@ -1,5 +1,6 @@
 import { createClient } from "@/prismicio";
 import BlogPostPreview from "../components/BlogPostPreview/BlogPostPreview";
+import { PrismicRichText } from "@prismicio/react";
 import "./page.css";
 
 export default async function Blog() {
@@ -10,7 +11,7 @@ export default async function Blog() {
   return (
     <div className="page narrow">
       <h1>{content.data.page_title}</h1>
-      <p className="lead-text">{content.data.page_lead}</p>
+      <PrismicRichText field={content.data.blog_lead} />
       <div className="posts-wrapper">
         <div className="posts-grid">
           {blogPosts.map((post) => (
