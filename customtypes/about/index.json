@@ -13,6 +13,14 @@
           "placeholder": ""
         }
       },
+      "about_image": {
+        "type": "Image",
+        "config": {
+          "label": "About Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "page_lead": {
         "type": "Text",
         "config": {

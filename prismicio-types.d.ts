@@ -87,6 +87,17 @@ interface AboutDocumentData {
   page_title: prismic.KeyTextField;
 
   /**
+   * About Image field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.about_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  about_image: prismic.ImageField<never>;
+
+  /**
    * Page Lead field in *About*
    *
    * - **Field Type**: Text

@@ -1,5 +1,6 @@
 import { createClient } from "@/prismicio";
 import "./page.css";
+import { PrismicNextImage } from "@prismicio/next";
 
 export default async function About() {
   const client = createClient();
@@ -7,6 +8,9 @@ export default async function About() {
   return (
     <div className="narrow about">
       <h1>{content.data.page_title}</h1>
+      <PrismicNextImage
+          field={content.data.about_image}
+        ></PrismicNextImage>
       <p className="lead-text">{content.data.page_lead}</p>
       <h2>{content.data.values_main_title}</h2>
       <div className="values_wrapper">
